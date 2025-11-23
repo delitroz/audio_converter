@@ -25,9 +25,9 @@ poetry install --no-root
 
 ## Scripts
 
-### flac_to_aac.py
+### flac_to_mp3.py
 
-Converts a library of .flac files to AAC.
+Converts a library of .flac files to mp3.
 
 Input library should follow the following file architecture:
 
@@ -47,5 +47,5 @@ Output library will mirror the same file architecture.
 
 Use the following command for more help on usage instructions.
 ```
-python scripts/flac_to_aac.py -h
+python scripts/flac_to_mp3.py -h
 ```

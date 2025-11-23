@@ -6,7 +6,7 @@ import argparse
 
 
 IN_EXT = ".flac"
-OUT_EXT = ".m4a"
+OUT_EXT = ".mp3"
 
 
 def convertion_data(in_dir: str, out_dir: str, verbose: bool = False) -> list[dict]:
@@ -89,13 +89,10 @@ def flac_to_aac(in_file: str, out_file: str, replace: bool = False, verbose: boo
                     .input(in_file)
                     .output(
                         out_file,
-                        acodec="aac",
-                        audio_bitrate="192k",
-                        ar="44100",
-                        ac=2,
-                        map="0:a:0",      # only maps audio
+                        acodec="mp3",
+                        map="0:a:0",  # only maps audio
                     )
-                    .run(quiet=True)
+                    .run(quiet=True, overwrite_output=True)
             )
         except ffmpeg.Error as e:
             print(f"ERROR converting {in_file}: {e.stderr.decode()}")
@@ -111,7 +108,7 @@ def flac_to_aac(in_file: str, out_file: str, replace: bool = False, verbose: boo
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="A python script to convert a library of .flac files to AAC"
+        description="A python script to convert a library of .flac files to .mp3"
     )
 
     parser.add_argument("-i", "--input", help="Input directory")
