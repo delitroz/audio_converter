@@ -8,6 +8,7 @@ import argparse
 IN_EXT = ".flac"
 OUT_EXT = ".m4a"
 
+
 def convertion_data(in_dir: str, out_dir: str, verbose: bool = False) -> list[dict]:
     """Scans input directory and prepares data structure for conversion
     Input directory should follow the following file structure:
@@ -124,11 +125,13 @@ if __name__ == "__main__":
     replace = args.replace
     verbose = args.verbose
 
-    print(f"\nScanning input directory ({in_dir}) ...")
+    print(f"\nScanning {in_dir} ...")
     data = convertion_data(in_dir, out_dir, verbose)
 
-    print("\nConverting files ...")
+    print(f"\nConverting files to {out_dir} ...")
     pbar = tqdm(data)
     for i in pbar:
         pbar.set_description(f"{i["artist"]} - {i["album"]} - {i["track"]}")
         flac_to_aac(in_file=i["in_file"], out_file=i["out_file"], replace=replace, verbose=verbose)
+
+    print("\nAll done !")
