@@ -46,7 +46,7 @@ def convertion_data(in_dir: str, out_dir: str):
                 in_file = os.path.join(album_path, track)
 
                 if in_file.endswith(IN_EXT):
-                    out_file = in_file.replace(in_dir, out_dir).replace(IN_EXT, OUT_EXT)
+                    out_file = os.path.join(out_dir, artist, album, track).replace(IN_EXT, OUT_EXT)
                     data.append(
                         {
                             "artist": artist,
