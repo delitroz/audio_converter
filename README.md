@@ -17,8 +17,8 @@ poetry install --no-root
 
 #### Windows
 ```powershell
+python -m venv .venv
 Set-ExecutionPolicy Unrestricted -Scope Process
-python3 -m venv .venv\
 .\.venv\Scripts\activate
 poetry install --no-root
 ```
