@@ -95,8 +95,6 @@ def main(in_dir, out_dir):
     print(f"\n\nScanning input library ({in_dir})...")
     data = convertion_data(in_dir, out_dir)
 
-    data = data[:5]
-
     print("\n\nConverting files...")
     pbar = tqdm(data)
     for i in pbar:
