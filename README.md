@@ -23,3 +23,29 @@ Set-ExecutionPolicy Unrestricted -Scope Process
 poetry install --no-root
 ```
 
+## Scripts
+
+### flac_to_aac.py
+
+Converts a library of .flac files to AAC.
+
+Input library should follow the following file architecture:
+
+```
+library
+    ├── artist_1
+    │   ├── album_1
+    │   │   ├── track_1
+    │   │   ├── track_2
+    │   │   └── ...
+    │   └── album_2
+    │       └── ...
+    └── artist_2
+        └── ...`
+```
+Output library will mirror the same file architecture.
+
+Use the following command for more help on usage instructions.
+```
+python scripts/flac_to_aac.py -h
+```

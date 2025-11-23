@@ -109,12 +109,14 @@ def flac_to_aac(in_file: str, out_file: str, replace: bool = False, verbose: boo
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        description="A python script to convert a library of .flac files to AAC"
+    )
 
-    parser.add_argument("-i", "--input")
-    parser.add_argument("-o", "--output")
-    parser.add_argument("-r", "--replace", action="store_true")
-    parser.add_argument("-v", "--verbose", action="store_true")
+    parser.add_argument("-i", "--input", help="Input directory")
+    parser.add_argument("-o", "--output", help="Output directory")
+    parser.add_argument("-r", "--replace", action="store_true", help="Overwrite existing files")
+    parser.add_argument("-v", "--verbose", action="store_true", help="Print INFO and WARNING mesages")
 
     args = parser.parse_args()
     in_dir = args.input
