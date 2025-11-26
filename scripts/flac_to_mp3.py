@@ -63,8 +63,8 @@ def convertion_data(in_dir: str, out_dir: str, verbose: bool = False) -> list[di
     return data
 
 
-def flac_to_aac(in_file: str, out_file: str, replace: bool = False, verbose: bool = False):
-    """Converts .flac file to AAC (.m4a). Creates output partent directory if not already exists.
+def flac_to_mp3(in_file: str, out_file: str, replace: bool = False, verbose: bool = False):
+    """Converts .flac file to .mp3. Creates output partent directory if not already exists.
 
     Args:
         in_file (str): Absolute path to input file
@@ -129,6 +129,6 @@ if __name__ == "__main__":
     pbar = tqdm(data)
     for i in pbar:
         pbar.set_description(f"{i["artist"]} - {i["album"]} - {i["track"]}")
-        flac_to_aac(in_file=i["in_file"], out_file=i["out_file"], replace=replace, verbose=verbose)
+        flac_to_mp3(in_file=i["in_file"], out_file=i["out_file"], replace=replace, verbose=verbose)
 
     print("\nAll done !")
